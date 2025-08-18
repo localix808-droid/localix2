@@ -2,7 +2,7 @@
 .auth-section {
     min-height: 100vh;
     padding: 120px 0 40px;
-    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+    background: var(--gray-50);
     display: flex;
     align-items: center;
 }
@@ -84,7 +84,7 @@
 .form-group input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px rgba(76, 132, 255, 0.1);
 }
 
 .form-group i {
@@ -189,7 +189,7 @@
 }
 
 .forgot-password:hover {
-    color: #1d4ed8;
+    color: var(--primary-color);
 }
 
 /* Auth Button */
@@ -277,8 +277,8 @@
 }
 
 .btn-microsoft:hover {
-    border-color: #00a4ef;
-    background: #00a4ef;
+    border-color: var(--primary-color);
+    background: var(--primary-color);
 }
 
 /* Auth Footer */
@@ -302,7 +302,7 @@
 }
 
 .link:hover {
-    color: #1d4ed8;
+    color: var(--accent-color);
 }
 
 /* Auth Image Section */
@@ -335,7 +335,7 @@
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+    background: var(--primary-color);
     border-radius: 15px;
     display: flex;
     align-items: center;

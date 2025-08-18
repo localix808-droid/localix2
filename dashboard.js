@@ -74,8 +74,8 @@ function switchToSection(targetId) {
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.dashboard-section');
-    const sidebarToggle = document.querySelector('.sidebar-toggle');
-    const sidebar = document.querySelector('.sidebar');
+const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
 
     console.log('Navigation initialized:', navLinks.length, 'nav links found');
     console.log('Sections found:', sections.length);
@@ -92,20 +92,20 @@ function initNavigation() {
     });
 
     // Mobile sidebar toggle
-    if (sidebarToggle) {
+if (sidebarToggle) {
         sidebarToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('active');
-        });
-    }
-
-    // Close sidebar when clicking outside on mobile
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 1024) {
-            if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
-                sidebar.classList.remove('active');
-            }
-        }
+        sidebar.classList.toggle('active');
     });
+}
+
+// Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 1024) {
+        if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+            sidebar.classList.remove('active');
+        }
+    }
+});
 }
 
 // Theme Customization
@@ -132,8 +132,8 @@ function initThemeCustomization() {
             
             // Apply theme
             applyTheme(this);
-        });
     });
+});
 
     // Color customization
     colorInputs.forEach(input => {
@@ -280,7 +280,7 @@ function clearAllNotifications() {
             notification.style.animation = 'slideOut 0.3s ease forwards';
         });
         
-        setTimeout(() => {
+    setTimeout(() => {
             notifications.forEach(notification => notification.remove());
             updateNotificationBadge();
         }, 300);
@@ -294,7 +294,7 @@ function updateNotificationBadge() {
     if (badge) {
         if (unreadCount === 0) {
             badge.style.display = 'none';
-        } else {
+            } else {
             badge.style.display = 'inline';
             badge.textContent = unreadCount;
         }
@@ -317,7 +317,7 @@ function showNotification(message, type = 'info') {
     document.body.appendChild(notification);
     
     // Remove after 3 seconds
-    setTimeout(() => {
+        setTimeout(() => {
         notification.remove();
     }, 3000);
 }
@@ -347,7 +347,7 @@ function testNavigation() {
     const testSections = ['overview', 'appearance', 'profile'];
     
     testSections.forEach((sectionId, index) => {
-        setTimeout(() => {
+            setTimeout(() => {
             console.log(`Testing section: ${sectionId}`);
             switchToSection(sectionId);
         }, index * 1000);

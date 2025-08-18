@@ -385,7 +385,7 @@ body {
 .stat-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    background: var(--primary-color);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -468,7 +468,6 @@ body {
 .action-btn:hover {
     background: var(--primary-color);
     color: var(--white);
-    border-color: var(--primary-color);
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
@@ -881,7 +880,7 @@ body {
 }
 
 .theme-preview.custom {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: var(--primary-color);
 }
 
 .preview-header {
@@ -1863,6 +1862,66 @@ body {
     color: var(--text-light);
 }
 
+/* Business Insights */
+.business-insights {
+    margin-top: 2rem;
+}
+
+.business-insights h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.insight-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.insight-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.75rem;
+}
+
+.insight-header i {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    width: 24px;
+    text-align: center;
+}
+
+.insight-header h4 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.insight-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
 /* Coming Soon */
 .coming-soon {
     text-align: center;
@@ -2049,6 +2108,16 @@ body {
         height: 35px;
         font-size: 0.8rem;
     }
+
+    /* Responsive adjustments for insights */
+    .insights-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .insight-card {
+        padding: 1.25rem;
+    }
 }
 
 /* Enhanced styling for appearance and profile sections */
@@ -2058,6 +2127,24 @@ body {
 
 .appearance-content > div:last-child {
     margin-bottom: 0;
+}
+
+/* Balanced accent elements */
+.stat-card .stat-icon {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.action-btn:hover {
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Enhanced theme preview with solid colors */
+.theme-preview.custom {
+    background: var(--primary-color);
 }
 
 /* Apply buttons spacing and alignment */
@@ -2097,7 +2184,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
+    background: rgba(255, 255, 255, 0.08);
     opacity: 0;
     transition: opacity 0.3s ease;
 }

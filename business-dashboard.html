@@ -14,7 +14,7 @@
     <aside class="sidebar">
         <div class="sidebar-header">
             <h2>Localix</h2>
-            <span class="logo-subtitle">For Craftsmen</span>
+            <span class="logo-subtitle">For Small Business</span>
         </div>
         
         <nav class="sidebar-nav">
@@ -27,32 +27,32 @@
                 </li>
                 <li class="nav-item active">
                     <a href="business-dashboard.html" class="nav-link">
-                        <i class="fas fa-building"></i>
-                        <span>Business Dashboard</span>
+                        <i class="fas fa-chart-line"></i>
+                        <span>Business Insights</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="create-project.html" class="nav-link">
-                        <i class="fas fa-plus-circle"></i>
-                        <span>Create Project</span>
+                    <a href="new-business-project.html" class="nav-link">
+                        <i class="fas fa-store"></i>
+                        <span>Setup Business</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="dashboard.html#website-settings" class="nav-link">
-                        <i class="fas fa-cog"></i>
-                        <span>Website Settings</span>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Social Media</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="dashboard.html#appearance" class="nav-link">
-                        <i class="fas fa-palette"></i>
-                        <span>Appearance</span>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Consulting</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="dashboard.html#profile" class="nav-link">
-                        <i class="fas fa-user"></i>
-                        <span>Profile</span>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cogs"></i>
+                        <span>SaaS Services</span>
                     </a>
                 </li>
             </ul>
@@ -64,8 +64,8 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="user-details">
-                    <h4>Mike Carpenter</h4>
-                    <p>Master Craftsman</p>
+                    <h4>Business Owner</h4>
+                    <p>Small Business</p>
                 </div>
             </div>
             <button class="logout-btn">
@@ -83,8 +83,8 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="business-info">
-                    <h1>E-commerce Store</h1>
-                    <p class="business-subtitle">Online store for handmade crafts</p>
+                    <h1>Joe's Barbershop</h1>
+                    <p class="business-subtitle">Professional grooming services</p>
                 </div>
             </div>
             
@@ -96,7 +96,7 @@
                 
                 <div class="notifications">
                     <i class="fas fa-bell" onclick="toggleNotifications()"></i>
-                    <span class="notification-badge">3</span>
+                    <span class="notification-badge">5</span>
                     
                     <!-- Notifications Dropdown -->
                     <div class="notifications-dropdown" id="notificationsDropdown">
@@ -115,11 +115,11 @@
                         <div class="notifications-list">
                             <div class="notification-item unread" data-type="business">
                                 <div class="notification-icon">
-                                    <i class="fas fa-shopping-cart"></i>
+                                    <i class="fas fa-calendar-check"></i>
                                 </div>
                                 <div class="notification-content">
-                                    <h5>New Order Received</h5>
-                                    <p>Order #1234 for $89.99 has been placed.</p>
+                                    <h5>New Appointment</h5>
+                                    <p>John D. booked a haircut for tomorrow at 2:00 PM</p>
                                     <span class="notification-time">5 minutes ago</span>
                                 </div>
                                 <button class="btn-icon" onclick="markAsRead(this)">
@@ -127,14 +127,42 @@
                                 </button>
                             </div>
 
-                            <div class="notification-item unread" data-type="business">
+                            <div class="notification-item unread" data-type="social">
                                 <div class="notification-icon">
-                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-share-alt"></i>
                                 </div>
                                 <div class="notification-content">
-                                    <h5>New Review</h5>
-                                    <p>5-star review from Sarah M. on your latest product.</p>
+                                    <h5>Social Media Post</h5>
+                                    <p>Your Instagram post reached 150+ local customers</p>
                                     <span class="notification-time">1 hour ago</span>
+                                </div>
+                                <button class="btn-icon" onclick="markAsRead(this)">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+
+                            <div class="notification-item unread" data-type="analytics">
+                                <div class="notification-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <h5>Weekly Report</h5>
+                                    <p>Revenue up 15% this week compared to last week</p>
+                                    <span class="notification-time">2 hours ago</span>
+                                </div>
+                                <button class="btn-icon" onclick="markAsRead(this)">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+
+                            <div class="notification-item" data-type="consulting">
+                                <div class="notification-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <h5>Consulting Session</h5>
+                                    <p>Your business consultant is available for a call</p>
+                                    <span class="notification-time">1 day ago</span>
                                 </div>
                                 <button class="btn-icon" onclick="markAsRead(this)">
                                     <i class="fas fa-check"></i>
@@ -143,12 +171,12 @@
 
                             <div class="notification-item" data-type="system">
                                 <div class="notification-icon">
-                                    <i class="fas fa-chart-line"></i>
+                                    <i class="fas fa-cog"></i>
                                 </div>
                                 <div class="notification-content">
-                                    <h5>Weekly Report Ready</h5>
-                                    <p>Your business performance report is available.</p>
-                                    <span class="notification-time">1 day ago</span>
+                                    <h5>System Update</h5>
+                                    <p>New booking system features are now available</p>
+                                    <span class="notification-time">2 days ago</span>
                                 </div>
                                 <button class="btn-icon" onclick="markAsRead(this)">
                                     <i class="fas fa-check"></i>
@@ -164,7 +192,7 @@
                 
                 <div class="user-menu">
                     <div class="user-avatar">
-                        <span>MC</span>
+                        <span>JO</span>
                     </div>
                     <i class="fas fa-chevron-down"></i>
                 </div>
@@ -193,34 +221,34 @@
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3>2,847</h3>
-                            <p>Total Visitors</p>
-                            <span class="stat-change positive">+12%</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3>156</h3>
-                            <p>Total Orders</p>
-                            <span class="stat-change positive">+8%</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">
                             <i class="fas fa-dollar-sign"></i>
                         </div>
                         <div class="stat-content">
-                            <h3>$12,450</h3>
-                            <p>Total Revenue</p>
+                            <h3>$8,450</h3>
+                            <p>This Week's Revenue</p>
                             <span class="stat-change positive">+15%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>47</h3>
+                            <p>Appointments This Week</p>
+                            <span class="stat-change positive">+8</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>23</h3>
+                            <p>New Customers</p>
+                            <span class="stat-change positive">+12%</span>
                         </div>
                     </div>
 
@@ -236,17 +264,48 @@
                     </div>
                 </div>
 
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="actions-grid">
+                        <button class="action-btn">
+                            <i class="fas fa-calendar-plus"></i>
+                            <span>Manage Appointments</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Social Media</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>View Analytics</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-users"></i>
+                            <span>Get Consulting</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-cogs"></i>
+                            <span>SaaS Services</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-cog"></i>
+                            <span>Business Settings</span>
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Recent Activity -->
                 <div class="recent-activity">
                     <h3>Recent Activity</h3>
                     <div class="activity-list">
                         <div class="activity-item">
                             <div class="activity-icon">
-                                <i class="fas fa-shopping-cart"></i>
+                                <i class="fas fa-calendar-check"></i>
                             </div>
                             <div class="activity-content">
-                                <h5>New Order #1234</h5>
-                                <p>Order placed for $89.99 - Handmade Wooden Bowl</p>
+                                <h5>New Appointment Booked</h5>
+                                <p>John D. scheduled a haircut for tomorrow at 2:00 PM - $25</p>
                                 <span class="activity-time">5 minutes ago</span>
                             </div>
                         </div>
@@ -257,19 +316,30 @@
                             </div>
                             <div class="activity-content">
                                 <h5>New 5-Star Review</h5>
-                                <p>Sarah M. left a glowing review for your latest product</p>
+                                <p>Sarah M. left a glowing review: "Best haircut I've ever had!"</p>
                                 <span class="activity-time">1 hour ago</span>
                             </div>
                         </div>
 
                         <div class="activity-item">
                             <div class="activity-icon">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h5>Social Media Success</h5>
+                                <p>Your Instagram post about summer styles reached 150+ local customers</p>
+                                <span class="activity-time">3 hours ago</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
                             </div>
                             <div class="activity-content">
                                 <h5>New Customer</h5>
-                                <p>John D. signed up for your newsletter</p>
-                                <span class="activity-time">3 hours ago</span>
+                                <p>Mike R. signed up for your newsletter and booked his first appointment</p>
+                                <span class="activity-time">1 day ago</span>
                             </div>
                         </div>
 
@@ -278,34 +348,41 @@
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <div class="activity-content">
-                                <h5>Traffic Spike</h5>
-                                <p>Website traffic increased by 25% this week</p>
-                                <span class="activity-time">1 day ago</span>
+                                <h5>Revenue Milestone</h5>
+                                <p>Weekly revenue exceeded $8,000 for the first time this month</p>
+                                <span class="activity-time">2 days ago</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Quick Actions -->
-                <div class="quick-actions">
-                    <h3>Quick Actions</h3>
-                    <div class="actions-grid">
-                        <button class="action-btn">
-                            <i class="fas fa-plus"></i>
-                            <span>Add Product</span>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-tags"></i>
-                            <span>Manage Inventory</span>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>View Analytics</span>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-cog"></i>
-                            <span>Business Settings</span>
-                        </button>
+                <!-- Business Insights -->
+                <div class="business-insights">
+                    <h3>Business Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-header">
+                                <i class="fas fa-clock"></i>
+                                <h4>Peak Hours</h4>
+                            </div>
+                            <p>Your busiest times are 10 AM - 12 PM and 4 PM - 6 PM. Consider adding more staff during these hours.</p>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-header">
+                                <i class="fas fa-trending-up"></i>
+                                <h4>Growth Opportunity</h4>
+                            </div>
+                            <p>You have 15% more walk-ins on weekends. Consider extending weekend hours.</p>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-header">
+                                <i class="fas fa-users"></i>
+                                <h4>Customer Retention</h4>
+                            </div>
+                            <p>85% of your customers return within 3 months. Great job on customer satisfaction!</p>
+                        </div>
                     </div>
                 </div>
             </section>
