@@ -18,6 +18,15 @@ function initDashboard() {
     
     // Notifications
     initNotifications();
+
+    // Consulting chat
+    initConsultingChat();
+
+    // Charts
+    initInsightsCharts();
+
+    // Social automation
+    initSocialAutomation();
 }
 
 // Global function to switch to a specific section
@@ -84,8 +93,16 @@ const sidebar = document.querySelector('.sidebar');
     // Sidebar navigation click handlers
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href') || '';
+            if (!href.startsWith('#')) {
+                return; // allow normal navigation for external links
+            }
             e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
+            const targetId = href.substring(1);
+            if (!targetId) {
+                console.warn('Empty hash link clicked');
+                return;
+            }
             console.log('Sidebar nav clicked:', targetId);
             switchToSection(targetId);
         });
@@ -280,7 +297,7 @@ function clearAllNotifications() {
             notification.style.animation = 'slideOut 0.3s ease forwards';
         });
         
-    setTimeout(() => {
+        setTimeout(() => {
             notifications.forEach(notification => notification.remove());
             updateNotificationBadge();
         }, 300);
@@ -317,9 +334,337 @@ function showNotification(message, type = 'info') {
     document.body.appendChild(notification);
     
     // Remove after 3 seconds
-        setTimeout(() => {
+    setTimeout(() => {
         notification.remove();
     }, 3000);
+}
+
+// Social media automation
+function initSocialAutomation() {
+    const composer = document.getElementById('socialComposer');
+    const addMediaBtn = document.getElementById('addMediaBtn');
+    const mediaInput = document.getElementById('mediaInput');
+    const mediaPreview = document.getElementById('mediaPreview');
+    const scheduleInputs = document.querySelectorAll('input[name="when"]');
+    const scheduleTime = document.getElementById('scheduleTime');
+    const queueList = document.getElementById('queueList');
+    const saveDraftBtn = document.getElementById('saveDraftBtn');
+    const postText = document.getElementById('postText');
+    const charCount = document.getElementById('charCount');
+    const hashtagChips = document.querySelectorAll('.hashtag-chip');
+    const previewText = document.getElementById('previewText');
+    const previewMedia = document.getElementById('previewMedia');
+    const platformToggle = document.getElementById('platformToggle');
+
+    if (!composer) return;
+
+    addMediaBtn.addEventListener('click', function() {
+        mediaInput.click();
+    });
+
+    mediaInput.addEventListener('change', function() {
+        mediaPreview.innerHTML = '';
+        previewMedia.innerHTML = '';
+        Array.from(mediaInput.files).forEach(file => {
+            const url = URL.createObjectURL(file);
+            const img = document.createElement('img');
+            img.src = url;
+            img.className = 'thumb';
+            mediaPreview.appendChild(img);
+
+            // preview tile
+            const tile = document.createElement('img');
+            tile.src = url;
+            previewMedia.appendChild(tile);
+        });
+    });
+
+    scheduleInputs.forEach(r => {
+        r.addEventListener('change', function() {
+            if (this.value === 'schedule') {
+                scheduleTime.style.display = 'inline-block';
+                scheduleTime.required = true;
+            } else {
+                scheduleTime.style.display = 'none';
+                scheduleTime.required = false;
+                scheduleTime.value = '';
+            }
+        });
+    });
+
+    composer.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const text = (postText.value || '').trim();
+        if (!text && (!mediaInput.files || mediaInput.files.length === 0)) {
+            showNotification('Add text or media before publishing', 'error');
+            return;
+        }
+
+        const when = document.querySelector('input[name="when"]:checked').value;
+        if (when === 'schedule' && !scheduleTime.value) {
+            showNotification('Select a schedule time', 'error');
+            return;
+        }
+
+        const item = document.createElement('div');
+        item.className = 'queue-item';
+        const whenLabel = when === 'now' ? 'Now' : new Date(scheduleTime.value).toLocaleString();
+        item.innerHTML = `
+            <div>
+                <strong>${whenLabel}</strong>
+                <div style="color: var(--text-light); font-size: 0.9rem; max-width: 520px;">${escapeHtml(text).slice(0, 140)}${text.length > 140 ? '…' : ''}</div>
+            </div>
+            <div>
+                <button class="btn btn-secondary btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Cancel</button>
+            </div>
+        `;
+
+        queueList.classList.remove('empty');
+        queueList.appendChild(item);
+        composer.reset();
+        mediaPreview.innerHTML = '';
+        previewMedia.innerHTML = '';
+        scheduleTime.style.display = 'none';
+        showNotification(when === 'now' ? 'Post published!' : 'Post scheduled', 'success');
+    });
+
+    saveDraftBtn.addEventListener('click', function() {
+        const text = (postText.value || '').trim();
+        localStorage.setItem('socialDraft', text);
+        showNotification('Draft saved', 'success');
+    });
+
+    // Restore draft if available
+    const draft = localStorage.getItem('socialDraft');
+    if (draft) postText.value = draft;
+
+    // character counter + live preview
+    function updateTextMeta() {
+        const text = postText.value || '';
+        charCount.textContent = `${text.length}/2200`;
+        previewText.textContent = text.trim() ? text : 'Your caption will appear here…';
+    }
+    postText.addEventListener('input', updateTextMeta);
+    updateTextMeta();
+
+    hashtagChips.forEach(chip => {
+        chip.addEventListener('click', function() {
+            const insertion = this.textContent.trim();
+            if (!postText.value.includes(insertion)) {
+                postText.value = (postText.value + ' ' + insertion).trim();
+                postText.dispatchEvent(new Event('input'));
+            }
+        });
+    });
+    
+    // toggle pill visual state
+    platformToggle.querySelectorAll('.pill input[type="checkbox"]').forEach(input => {
+        input.addEventListener('change', function() {
+            const pill = this.closest('.pill');
+            if (this.checked) pill.classList.add('active'); else pill.classList.remove('active');
+    });
+});
+
+    // best time hint when scheduling
+    document.querySelectorAll('input[name="when"]').forEach(r => {
+        r.addEventListener('change', function() {
+            const hint = document.getElementById('bestTimeHint');
+            hint.style.display = (this.value === 'schedule') ? 'inline' : 'none';
+        });
+    });
+}
+
+function escapeHtml(str) {
+    return str.replace(/[&<>"]?/g, function(c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] || c;
+    });
+}
+
+// Business Insights Charts
+function initInsightsCharts() {
+    if (typeof Chart === 'undefined') return;
+
+    // Inline helper
+    function makeChart(ctxId, type, data, options = {}) {
+        const ctx = document.getElementById(ctxId);
+        if (!ctx) return null;
+        return new Chart(ctx, { type, data, options });
+    }
+
+    const labels12 = Array.from({ length: 12 }, (_, i) => `W${i + 1}`);
+    const labels6 = Array.from({ length: 6 }, (_, i) => `W${i + 1}`);
+
+    // Overview cards
+    makeChart('revChart', 'line', {
+        labels: labels6,
+        datasets: [{
+            label: 'Revenue',
+            data: [6.2, 6.8, 7.4, 7.9, 8.1, 8.45],
+            borderColor: getCssVar('--primary-color'),
+            backgroundColor: hexToRgba(getCssVar('--primary-color'), 0.1),
+            fill: true,
+            tension: 0.35,
+        }]
+    }, baseLineOptions());
+
+    makeChart('custChart', 'bar', {
+        labels: labels6,
+        datasets: [{
+            label: 'New Customers',
+            data: [12, 15, 18, 20, 21, 23],
+            backgroundColor: getCssVar('--primary-color')
+        }]
+    }, baseBarOptions());
+
+    makeChart('apptChart', 'line', {
+        labels: labels6,
+        datasets: [{
+            label: 'Appointments',
+            data: [32, 35, 38, 41, 45, 47],
+            borderColor: getCssVar('--accent-color'),
+            backgroundColor: hexToRgba(getCssVar('--accent-color'), 0.1),
+            fill: true,
+            tension: 0.35,
+        }]
+    }, baseLineOptions());
+
+    // Insights tab
+    makeChart('insightsRevenue', 'line', {
+        labels: labels12,
+        datasets: [{
+            label: 'Revenue ($k)',
+            data: [4.2, 4.8, 5.1, 5.4, 5.9, 6.3, 6.5, 6.9, 7.4, 7.9, 8.2, 8.5],
+            borderColor: getCssVar('--primary-color'),
+            backgroundColor: hexToRgba(getCssVar('--primary-color'), 0.1),
+            fill: true,
+            tension: 0.35,
+        }]
+    }, baseLineOptions());
+
+    makeChart('insightsCustomers', 'bar', {
+        labels: labels12,
+        datasets: [{
+            label: 'New Customers',
+            data: [8, 10, 9, 12, 14, 13, 16, 15, 18, 20, 21, 23],
+            backgroundColor: getCssVar('--primary-color')
+        }]
+    }, baseBarOptions());
+
+    makeChart('insightsRating', 'line', {
+        labels: labels12,
+        datasets: [{
+            label: 'Avg Rating',
+            data: [4.4, 4.5, 4.5, 4.6, 4.6, 4.7, 4.7, 4.7, 4.8, 4.8, 4.8, 4.8],
+            borderColor: getCssVar('--secondary-color'),
+            backgroundColor: hexToRgba(getCssVar('--secondary-color'), 0.1),
+            fill: true,
+            tension: 0.35,
+        }]
+    }, baseLineOptions());
+
+    function baseLineOptions() {
+        return {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false } },
+                y: { grid: { color: getCssVar('--gray-200') } }
+            }
+        };
+    }
+
+    function baseBarOptions() {
+        return {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false } },
+                y: { grid: { color: getCssVar('--gray-200') } }
+            }
+        };
+    }
+}
+
+function getCssVar(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function hexToRgba(hex, alpha) {
+    const c = hex.replace('#', '');
+    const bigint = parseInt(c.length === 3 ? c.split('').map(x => x + x).join('') : c, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+// Consulting chat logic
+function initConsultingChat() {
+    const chatForm = document.getElementById('chatForm');
+    const chatField = document.getElementById('chatField');
+    const chatMessages = document.getElementById('chatMessages');
+    const topicButtons = document.querySelectorAll('.topic-btn');
+    const endSessionBtn = document.getElementById('endSessionBtn');
+
+    if (!chatMessages) {
+        return;
+    }
+
+    function appendMessage(text, sender = 'user') {
+        const wrapper = document.createElement('div');
+        wrapper.className = `message ${sender}`;
+
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.textContent = text;
+        wrapper.appendChild(bubble);
+
+        const time = document.createElement('span');
+        time.className = 'time';
+        time.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        wrapper.appendChild(time);
+
+        chatMessages.appendChild(wrapper);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function simulateBotReply(userText) {
+        const responses = [
+            'Thanks for sharing. Here are 3 steps you can take this week: 1) Offer a weekday promo, 2) Post a before/after reel, 3) Ask for reviews at checkout.',
+            'Great question. From similar shops, this playbook works best: loyalty points + online booking reminders + upsell add-ons.',
+            'Let’s make it practical. I’ll outline a one-week action plan you can try immediately. Want that?',
+        ];
+        const reply = responses[Math.floor(Math.random() * responses.length)];
+        setTimeout(() => appendMessage(reply, 'bot'), 600);
+    }
+
+    if (chatForm && chatField) {
+        chatForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+            const text = (chatField.value || '').trim();
+            if (!text) return;
+            appendMessage(text, 'user');
+            chatField.value = '';
+            simulateBotReply(text);
+        });
+    }
+
+    topicButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const text = this.getAttribute('data-template') || this.textContent;
+            appendMessage(text, 'user');
+            simulateBotReply(text);
+    });
+});
+
+    if (endSessionBtn) {
+        endSessionBtn.addEventListener('click', function() {
+            appendMessage('Session ended. You can start a new chat anytime.', 'bot');
+        });
+    }
 }
 
 // Debug function - can be called from console

@@ -26,6 +26,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="#projects" class="nav-link" onclick="switchToSection('projects')">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="#appearance" class="nav-link" onclick="switchToSection('appearance')">
                         <i class="fas fa-palette"></i>
                         <span>Appearance</span>
@@ -72,6 +78,12 @@
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search...">
                 </div>
+                
+                <!-- Dark Mode Toggle -->
+                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle dark mode">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
                 
                 <div class="notifications">
                     <i class="fas fa-bell" onclick="toggleNotifications()"></i>
@@ -269,6 +281,98 @@
                 </div>
             </section>
 
+            <!-- Projects Section -->
+            <section id="projects" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Business Projects</h2>
+                    <p>Manage and launch your business websites and campaigns</p>
+                </div>
+
+                <div class="quick-actions" style="margin-top:0">
+                    <div class="actions-grid">
+                        <a href="new-business-project.html" class="action-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>Create New Project</span>
+                        </a>
+                        <a href="create-project.html" class="action-btn">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Detailed Project Wizard</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Joe's Barbershop</h3>
+                            <a class="business-link" href="business-dashboard.html">Open Business Dashboard</a>
+                        </div>
+                        <p>Local barbershop website with booking, gallery, and social automation.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-label">Visitors</span>
+                                <span class="stat-value">1,204</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Leads</span>
+                                <span class="stat-value">86</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="business-dashboard.html" class="btn btn-primary btn-sm">Manage</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Edit</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Maria's Bakery</h3>
+                            <a class="business-link" href="business-dashboard.html">Open Dashboard</a>
+                        </div>
+                        <p>Bakery site with menu, online orders, and Instagram feed.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-label">Visitors</span>
+                                <span class="stat-value">832</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Leads</span>
+                                <span class="stat-value">41</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="business-dashboard.html" class="btn btn-primary btn-sm">Manage</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Edit</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>GreenLeaf Lawn Care</h3>
+                            <a class="business-link" href="business-dashboard.html">Open Dashboard</a>
+                        </div>
+                        <p>Service business with quote form, testimonials, and service areas.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-label">Visitors</span>
+                                <span class="stat-value">542</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Leads</span>
+                                <span class="stat-value">22</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="business-dashboard.html" class="btn btn-primary btn-sm">Manage</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Edit</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Appearance Section -->
             <section id="appearance" class="dashboard-section">
                 <div class="section-header">
@@ -445,5 +549,6 @@
     </main>
 
     <script src="dashboard.js"></script>
+    <script src="dark-mode.js"></script>
 </body>
 </html>

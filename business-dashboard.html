@@ -26,31 +26,31 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a href="business-dashboard.html" class="nav-link">
+                    <a href="#business-overview" class="nav-link">
                         <i class="fas fa-chart-line"></i>
                         <span>Business Insights</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="new-business-project.html" class="nav-link">
-                        <i class="fas fa-store"></i>
-                        <span>Setup Business</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#social-media" class="nav-link">
                         <i class="fas fa-share-alt"></i>
                         <span>Social Media</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#insights" class="nav-link" onclick="switchToSection('insights')">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Insights</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#consulting" class="nav-link" onclick="switchToSection('consulting')">
                         <i class="fas fa-users"></i>
                         <span>Consulting</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#saas-services" class="nav-link" onclick="switchToSection('saas-services')">
                         <i class="fas fa-cogs"></i>
                         <span>SaaS Services</span>
                     </a>
@@ -93,6 +93,12 @@
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search business...">
                 </div>
+                
+                <!-- Dark Mode Toggle -->
+                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle dark mode">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
                 
                 <div class="notifications">
                     <i class="fas fa-bell" onclick="toggleNotifications()"></i>
@@ -205,16 +211,6 @@
             <section id="business-overview" class="dashboard-section active">
                 <div class="section-header">
                     <h2>Business Overview</h2>
-                    <div class="business-actions">
-                        <button class="btn btn-outline">
-                            <i class="fas fa-edit"></i>
-                            Edit Business
-                        </button>
-                        <button class="btn btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Live Site
-                        </button>
-                    </div>
                 </div>
 
                 <!-- Business Stats -->
@@ -272,19 +268,19 @@
                             <i class="fas fa-calendar-plus"></i>
                             <span>Manage Appointments</span>
                         </button>
-                        <button class="action-btn">
+                        <button class="action-btn" onclick="switchToSection('social-media')">
                             <i class="fas fa-share-alt"></i>
                             <span>Social Media</span>
                         </button>
-                        <button class="action-btn">
+                        <button class="action-btn" onclick="switchToSection('insights')">
                             <i class="fas fa-chart-bar"></i>
                             <span>View Analytics</span>
                         </button>
-                        <button class="action-btn">
+                        <button class="action-btn" onclick="switchToSection('consulting')">
                             <i class="fas fa-users"></i>
                             <span>Get Consulting</span>
                         </button>
-                        <button class="action-btn">
+                        <button class="action-btn" onclick="switchToSection('saas-services')">
                             <i class="fas fa-cogs"></i>
                             <span>SaaS Services</span>
                         </button>
@@ -362,34 +358,330 @@
                     <div class="insights-grid">
                         <div class="insight-card">
                             <div class="insight-header">
-                                <i class="fas fa-clock"></i>
-                                <h4>Peak Hours</h4>
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Revenue (Last 6 Weeks)</h4>
                             </div>
-                            <p>Your busiest times are 10 AM - 12 PM and 4 PM - 6 PM. Consider adding more staff during these hours.</p>
+                            <canvas id="revChart"></canvas>
                         </div>
-                        
+
                         <div class="insight-card">
                             <div class="insight-header">
-                                <i class="fas fa-trending-up"></i>
-                                <h4>Growth Opportunity</h4>
+                                <i class="fas fa-user-plus"></i>
+                                <h4>New Customers</h4>
                             </div>
-                            <p>You have 15% more walk-ins on weekends. Consider extending weekend hours.</p>
+                            <canvas id="custChart"></canvas>
                         </div>
-                        
+
                         <div class="insight-card">
                             <div class="insight-header">
-                                <i class="fas fa-users"></i>
-                                <h4>Customer Retention</h4>
+                                <i class="fas fa-calendar-check"></i>
+                                <h4>Appointments</h4>
                             </div>
-                            <p>85% of your customers return within 3 months. Great job on customer satisfaction!</p>
+                            <canvas id="apptChart"></canvas>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Media Automation Section -->
+            <section id="social-media" class="dashboard-section">
+                <div class="section-header">
+                    <div>
+                        <h2>Social Media</h2>
+                        <p>Connect your accounts and automate posts across platforms</p>
+                    </div>
+                </div>
+
+                <div class="social-grid">
+                    <!-- Connections -->
+                    <div class="social-card">
+                        <h3>Connected Accounts</h3>
+                        <div class="accounts-list">
+                            <div class="account-item connected">
+                                <i class="fab fa-instagram"></i>
+                                <div>
+                                    <h4>Instagram</h4>
+                                    <span>@joesbarbershop</span>
+                                </div>
+                                <span class="status-badge ok">Connected</span>
+                                <button class="btn btn-secondary btn-sm disconnect-btn">Disconnect</button>
+                            </div>
+                            <div class="account-item">
+                                <i class="fab fa-facebook"></i>
+                                <div>
+                                    <h4>Facebook Page</h4>
+                                    <span>Not connected</span>
+                                </div>
+                                <span class="status-badge warn">Not connected</span>
+                                <button class="btn btn-primary btn-sm connect-btn">Connect</button>
+                            </div>
+                            <div class="account-item">
+                                <i class="fab fa-tiktok"></i>
+                                <div>
+                                    <h4>TikTok</h4>
+                                    <span>Not connected</span>
+                                </div>
+                                <span class="status-badge warn">Not connected</span>
+                                <button class="btn btn-primary btn-sm connect-btn">Connect</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Composer -->
+                    <div class="social-card">
+                        <h3>Create & Schedule Post</h3>
+                        <form id="socialComposer" class="composer-form">
+                            <div class="target-row">
+                                <label>Post to</label>
+                                <div class="platform-toggle" id="platformToggle">
+                                    <label class="pill active" data-platform="instagram"><input type="checkbox" checked> <i class="fab fa-instagram"></i> Instagram</label>
+                                    <label class="pill" data-platform="facebook"><input type="checkbox"> <i class="fab fa-facebook"></i> Facebook</label>
+                                    <label class="pill" data-platform="tiktok"><input type="checkbox"> <i class="fab fa-tiktok"></i> TikTok</label>
+                                </div>
+                            </div>
+                            <div class="tip-row">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Tip: Add 3-5 relevant hashtags and a clear call to action</span>
+                            </div>
+                            <textarea id="postText" rows="4" maxlength="2200" placeholder="Write your caption... Include @mentions and #hashtags"></textarea>
+                            <div class="composer-meta">
+                                <div class="hashtags" id="hashtagChips">
+                                    <button type="button" class="hashtag-chip">#barbershop</button>
+                                    <button type="button" class="hashtag-chip">#freshcut</button>
+                                    <button type="button" class="hashtag-chip">#localbusiness</button>
+                                    <button type="button" class="hashtag-chip">#fade</button>
+                                    <button type="button" class="hashtag-chip">#style</button>
+                                </div>
+                                <span class="char-count" id="charCount">0/2200</span>
+                            </div>
+                            <div class="media-row">
+                                <button type="button" class="btn btn-secondary" id="addMediaBtn"><i class="fas fa-image"></i> Add Media</button>
+                                <input type="file" id="mediaInput" accept="image/*,video/*" multiple hidden>
+                                <div class="media-preview" id="mediaPreview"></div>
+                            </div>
+                            <div class="schedule-row">
+                                <label><input type="radio" name="when" value="now" checked> Post now</label>
+                                <label><input type="radio" name="when" value="schedule"> Schedule</label>
+                                <input type="datetime-local" id="scheduleTime" class="schedule-input" style="display:none;">
+                                <small class="tz-hint">Local time</small>
+                                <small class="best-time" id="bestTimeHint" style="display:none;">Best time: today 6:00 PM</small>
+                            </div>
+                            <div class="composer-actions">
+                                <button type="submit" id="publishBtn" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Publish</button>
+                                <button type="button" id="saveDraftBtn" class="btn btn-secondary"><i class="fas fa-save"></i> Save Draft</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Live Preview -->
+                    <div class="social-card">
+                        <h3>Post Preview</h3>
+                        <div class="post-preview">
+                            <div class="preview-header">
+                                <div class="avatar">JB</div>
+                                <div>
+                                    <strong>Joe's Barbershop</strong>
+                                    <div class="sub">@joesbarbershop • Now</div>
+                                </div>
+                            </div>
+                            <div class="preview-media" id="previewMedia"></div>
+                            <div class="preview-text" id="previewText">Your caption will appear here…</div>
+                        </div>
+                    </div>
+
+                    <!-- Queue -->
+                    <div class="social-card">
+                        <h3>Scheduled Queue</h3>
+                        <div id="queueList" class="queue-list empty">
+                            <div class="empty-state">
+                                <i class="fas fa-calendar-plus"></i>
+                                <p>No scheduled posts yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Insights Tab with Charts -->
+            <section id="insights" class="dashboard-section">
+                <div class="section-header">
+                    <div>
+                        <h2>Business Insights</h2>
+                        <p>Visualize key metrics to optimize your performance</p>
+                    </div>
+                </div>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Revenue (Last 12 Weeks)</h4>
+                        </div>
+                        <canvas id="insightsRevenue"></canvas>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <i class="fas fa-user-plus"></i>
+                            <h4>New Customers</h4>
+                        </div>
+                        <canvas id="insightsCustomers"></canvas>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <i class="fas fa-star"></i>
+                            <h4>Average Rating</h4>
+                        </div>
+                        <canvas id="insightsRating"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Consulting Chat Section -->
+            <section id="consulting" class="dashboard-section">
+                <div class="section-header">
+                    <div>
+                        <h2>Consulting</h2>
+                        <p>Chat with a business consultant to get advice tailored to your shop</p>
+                    </div>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-sidebar">
+                        <div class="consultant-card">
+                            <img src="https://ui-avatars.com/api/?name=Business+Consultant&background=4c84ff&color=fff" alt="Consultant">
+                            <div>
+                                <h4>Business Consultant</h4>
+                                <p>Typically responds in 5 min</p>
+                            </div>
+                        </div>
+                        <div class="chat-topics">
+                            <h5>Quick Topics</h5>
+                            <button class="topic-btn" data-template="How do I increase bookings on weekdays?">Increase Weekday Bookings</button>
+                            <button class="topic-btn" data-template="What promotions work best for barbershops?">Best Promotions</button>
+                            <button class="topic-btn" data-template="How to reduce no-shows effectively?">Reduce No-shows</button>
+                            <button class="topic-btn" data-template="What KPIs should I track weekly?">Key KPIs</button>
+                        </div>
+                    </div>
+
+                    <div class="chat-main">
+                        <div class="chat-header">
+                            <div class="chat-title">
+                                <i class="fas fa-user-tie"></i>
+                                <div>
+                                    <h4>Consultant</h4>
+                                    <span>Online</span>
+                                </div>
+                            </div>
+                            <div class="chat-actions">
+                                <button class="btn btn-secondary" id="endSessionBtn"><i class="fas fa-stop"></i> End</button>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message bot">
+                                <div class="bubble">
+                                    Hi! I’m your Localix business consultant. Tell me about your goal and I’ll share actionable steps.
+                                </div>
+                                <span class="time">Just now</span>
+                            </div>
+                        </div>
+
+                        <form class="chat-input" id="chatForm">
+                            <input type="text" id="chatField" placeholder="Type your message..." autocomplete="off">
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- SaaS Services Section -->
+            <section id="saas-services" class="dashboard-section">
+                <div class="section-header">
+                    <div>
+                        <h2>SaaS Services</h2>
+                        <p>Website, booking, payments, inventory, CRM, and mobile apps for your business</p>
+                    </div>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon"><i class="fas fa-globe"></i></div>
+                        <h3>Website Builder</h3>
+                        <p>Launch a modern website with online booking and SEO best practices.</p>
+                        <ul class="tool-features">
+                            <li>Professional templates</li>
+                            <li>Custom domain & SSL</li>
+                            <li>SEO & analytics</li>
+                        </ul>
+                        <a href="new-business-project.html" class="btn btn-outline">Get Started</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h3>Online Booking</h3>
+                        <p>Let customers book online and reduce no-shows with reminders.</p>
+                        <ul class="tool-features">
+                            <li>Calendar sync</li>
+                            <li>SMS/email reminders</li>
+                            <li>Staff scheduling</li>
+                        </ul>
+                        <a href="new-business-project.html" class="btn btn-outline">Enable Booking</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><i class="fas fa-cash-register"></i></div>
+                        <h3>POS & Payments</h3>
+                        <p>Accept payments in-store and online with unified reporting.</p>
+                        <ul class="tool-features">
+                            <li>Card & contactless</li>
+                            <li>Invoices & receipts</li>
+                            <li>Sales reports</li>
+                        </ul>
+                        <a href="new-business-project.html" class="btn btn-outline">Connect Payments</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><i class="fas fa-boxes"></i></div>
+                        <h3>Inventory</h3>
+                        <p>Track stock levels, suppliers, and get low-stock alerts.</p>
+                        <ul class="tool-features">
+                            <li>Variants & bundles</li>
+                            <li>Purchase orders</li>
+                            <li>Multi-location</li>
+                        </ul>
+                        <a href="new-business-project.html" class="btn btn-outline">Manage Inventory</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><i class="fas fa-user-friends"></i></div>
+                        <h3>CRM & Loyalty</h3>
+                        <p>Keep customers coming back with profiles, notes, and rewards.</p>
+                        <ul class="tool-features">
+                            <li>Customer profiles</li>
+                            <li>Segments & tags</li>
+                            <li>Loyalty points</li>
+                        </ul>
+                        <a href="new-business-project.html" class="btn btn-outline">Grow Loyalty</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Mobile App</h3>
+                        <p>Offer a branded app for bookings, push notifications, and promos.</p>
+                        <ul class="tool-features">
+                            <li>iOS & Android</li>
+                            <li>Push campaigns</li>
+                            <li>Easy updates</li>
+                        </ul>
+                        <a href="new-business-project.html" class="btn btn-outline">Build My App</a>
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="dashboard.js"></script>
+    <script src="dark-mode.js"></script>
     <script>
         // Business Dashboard specific JavaScript
         function toggleNotifications() {

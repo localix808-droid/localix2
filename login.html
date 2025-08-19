@@ -40,7 +40,13 @@
             <div class="auth-content">
                 <div class="auth-header">
                     <h1>Welcome Back</h1>
-                    <p>Sign in to your Localix account to continue managing your business</p>
+                    <p>Sign in to your account to continue</p>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle dark mode" style="position: absolute; top: 20px; right: 20px;">
+                        <i class="fas fa-sun sun-icon"></i>
+                        <i class="fas fa-moon moon-icon"></i>
+                    </button>
                 </div>
                 
                 <form class="auth-form" id="loginForm">
@@ -100,6 +106,7 @@
 
     <script src="script.js"></script>
     <script src="auth.js"></script>
+    <script src="dark-mode.js"></script>
 </body>
 </html>
 

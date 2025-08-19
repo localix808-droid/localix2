@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Services - Localix</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Localix</h2>
+                <span class="logo-subtitle">SaaS Services</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#tools" class="nav-link">Tools</a>
+                </li>
+                <li class="nav-item">
+                    <a href="saas.html" class="nav-link">SaaS Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#pricing" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link btn-login">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a href="signup.html" class="nav-link btn-signup">Start Free</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Dark Mode Toggle -->
+                    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle dark mode">
+                        <i class="fas fa-sun sun-icon"></i>
+                        <i class="fas fa-moon moon-icon"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="padding-top: 120px;">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    SaaS Services for
+                    <span class="highlight">Small Businesses</span>
+                </h1>
+                <p class="hero-description">
+                    Get a professional website, online booking, POS integration, inventory, CRM, and mobile apps — everything your barbershop, restaurant, or local business needs to grow.
+                </p>
+                <div class="hero-buttons">
+                    <a href="new-business-project.html" class="btn btn-primary">Set Up My Business</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SaaS Services -->
+    <section id="services" class="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>SaaS Services Built For You</h2>
+                <p>Pick what you need — start small and scale up anytime</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Website Builder</h3>
+                    <p>Launch a fast, modern website with online booking and SEO best practices.</p>
+                    <ul class="tool-features">
+                        <li>Professional templates</li>
+                        <li>Custom domain & SSL</li>
+                        <li>SEO & analytics</li>
+                    </ul>
+                    <a href="new-business-project.html" class="btn btn-outline">Get Started</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Online Booking</h3>
+                    <p>Let customers book appointments online. Reduce no-shows with reminders.</p>
+                    <ul class="tool-features">
+                        <li>Calendar sync</li>
+                        <li>SMS/email reminders</li>
+                        <li>Staff scheduling</li>
+                    </ul>
+                    <a href="new-business-project.html" class="btn btn-outline">Enable Booking</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-cash-register"></i></div>
+                    <h3>POS & Payments</h3>
+                    <p>Accept payments in-store and online with unified reporting.</p>
+                    <ul class="tool-features">
+                        <li>Card & contactless</li>
+                        <li>Invoices & receipts</li>
+                        <li>Sales reports</li>
+                    </ul>
+                    <a href="new-business-project.html" class="btn btn-outline">Connect Payments</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-boxes"></i></div>
+                    <h3>Inventory</h3>
+                    <p>Track products, stock levels, and suppliers with low-stock alerts.</p>
+                    <ul class="tool-features">
+                        <li>Variants & bundles</li>
+                        <li>Purchase orders</li>
+                        <li>Multi-location</li>
+                    </ul>
+                    <a href="new-business-project.html" class="btn btn-outline">Manage Inventory</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-user-friends"></i></div>
+                    <h3>CRM & Loyalty</h3>
+                    <p>Keep customers coming back with profiles, notes, and rewards.</p>
+                    <ul class="tool-features">
+                        <li>Customer profiles</li>
+                        <li>Segments & tags</li>
+                        <li>Loyalty points</li>
+                    </ul>
+                    <a href="new-business-project.html" class="btn btn-outline">Grow Loyalty</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile App</h3>
+                    <p>Offer a branded app for bookings, push notifications, and promotions.</p>
+                    <ul class="tool-features">
+                        <li>iOS & Android</li>
+                        <li>Push campaigns</li>
+                        <li>Easy updates</li>
+                    </ul>
+                    <a href="new-business-project.html" class="btn btn-outline">Build My App</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pricing" style="padding-top: 40px;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Start With A Free Setup Session</h2>
+                <p>Tell us about your business — we’ll recommend the right SaaS stack</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>SaaS Starter</h3>
+                        <div class="price">
+                            <span class="amount">$0</span>
+                            <span class="period">/setup</span>
+                        </div>
+                        <p>We’ll help you choose what you need</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 30-min onboarding call</li>
+                        <li><i class="fas fa-check"></i> Tailored recommendations</li>
+                        <li><i class="fas fa-check"></i> Implementation plan</li>
+                    </ul>
+                    <a href="new-business-project.html" class="btn btn-primary">Schedule Free Setup</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Localix</h3>
+                    <p>Simple business tools designed for small businesses and craftsmen.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#tools">Tools</a></li>
+                        <li><a href="saas.html">SaaS Services</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="#">Mobile App</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Localix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dark-mode.js"></script>
+    
+    <!-- Optional: we intentionally skip script.js to avoid scroll/link conflicts -->
+</body>
+</html>
+
+

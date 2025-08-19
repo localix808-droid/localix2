@@ -489,3 +489,120 @@
     }
 }
 
+/* Dark mode styles for auth pages */
+[data-theme="dark"] {
+    background-color: var(--bg-primary);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .auth-container {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .auth-header h1 {
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .auth-header p {
+    color: var(--text-lighter);
+}
+
+[data-theme="dark"] .form-group input {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 132, 255, 0.1);
+}
+
+[data-theme="dark"] .form-group input::placeholder {
+    color: var(--text-lighter);
+}
+
+[data-theme="dark"] .form-group label {
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .form-group i {
+    color: var(--text-lighter);
+}
+
+[data-theme="dark"] .password-toggle {
+    color: var(--text-lighter);
+}
+
+[data-theme="dark"] .password-toggle:hover {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background: var(--primary-color);
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .btn-google,
+[data-theme="dark"] .btn-microsoft {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .btn-google:hover,
+[data-theme="dark"] .btn-microsoft:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .divider {
+    background: var(--border-color);
+}
+
+[data-theme="dark"] .divider span {
+    background: var(--bg-secondary);
+    color: var(--text-lighter);
+}
+
+[data-theme="dark"] .link {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .link:hover {
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+[data-theme="dark"] .feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .feature-icon {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+[data-theme="dark"] .feature-content h3 {
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .feature-content p {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .auth-image {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .auth-image::before {
+    background: var(--primary-color);
+    opacity: 0.1;
+}
+
