@@ -42,7 +42,6 @@ lsubmit.addEventListener("click", (event) => {
       localStorage.setItem("SignInId", user.uid);
       window.location.href = "dashboard.html";
       localStorage.setItem("projectNumber", 0);
-      localStorage.setItem("points", points);
     })
     .catch((error) => {
       const errorCode = error.code;
