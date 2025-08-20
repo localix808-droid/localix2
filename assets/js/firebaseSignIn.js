@@ -37,9 +37,12 @@ lsubmit.addEventListener("click", (event) => {
     .then((userCredential) => {
       alert("User signed in successfully!");
       const user = userCredential.user;
+      const points = user.points;
+      points += 10;
       localStorage.setItem("SignInId", user.uid);
       window.location.href = "dashboard.html";
       localStorage.setItem("projectNumber", 0);
+      localStorage.setItem("points", points);
     })
     .catch((error) => {
       const errorCode = error.code;

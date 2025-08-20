@@ -115,7 +115,6 @@ function idCheck(auth) {
       })
       .catch((error) => {
         const errorCode = error.code;
-        alert("Error fetching user data: " + errorCode);
       });
   } else {
     alert("No user signed in. Redirecting to login page.");

@@ -51,9 +51,8 @@ rsubmit.addEventListener("click", (event) => {
           password: password,
           plan: "Free",
           UID: user.uid,
+          points: Number,
         };
-        // TODO: download the new html files
-        // TODO: users collection id document and projects sub collection
         alert("User created successfully!");
         const docRef = doc(db, "Users", user.uid);
         setDoc(docRef, userData)

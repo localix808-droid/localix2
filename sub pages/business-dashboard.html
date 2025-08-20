@@ -24,8 +24,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
-        <h2>Localix</h2>
-        <span class="logo-subtitle">For Small Business</span>
+        <img src="../assets/images/logo.png" width="100px" />
       </div>
 
       <nav class="sidebar-nav">
@@ -749,7 +748,12 @@
                   placeholder="Type your message..."
                   autocomplete="off"
                 />
-                <button class="btn btn-primary" type="button" id="sendMessage">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  id="sendMessage"
+                  onclick="respond()"
+                >
                   <i class="fas fa-paper-plane"></i>
                 </button>
               </form>
@@ -871,5 +875,6 @@
     <script src="dark-mode.js"></script>
     <script type="module" src="../assets/js/dashboard.js"></script>
     <script src="../assets/js/chatbot.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </body>
 </html>
