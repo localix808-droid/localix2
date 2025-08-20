@@ -51,6 +51,7 @@ rsubmit.addEventListener("click", (event) => {
           password: password,
           plan: "Free",
           UID: user.uid,
+          points: 0,
         };
         alert("User created successfully!");
         const docRef = doc(db, "Users", user.uid);
@@ -71,3 +72,4 @@ rsubmit.addEventListener("click", (event) => {
       });
   }
 });
+
