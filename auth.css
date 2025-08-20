@@ -1,3 +1,6 @@
+*{
+    font-family: 'DM Sans', sans-serif;
+}
 /* Authentication Pages Styles */
 .auth-section {
     min-height: 100vh;
@@ -56,6 +59,14 @@
     flex-direction: column;
     gap: 1.5rem;
 }
+.input-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 12px;
+    padding: 10px;
+}
 
 .form-group {
     position: relative;
@@ -90,14 +101,13 @@
 .form-group i {
     position: absolute;
     left: 1.25rem;
-    top: 50%;
-    transform: translateY(-50%);
     color: var(--text-light);
     font-size: 1.1rem;
     transition: color 0.3s ease;
     width: 16px;
     text-align: center;
     line-height: 1;
+    padding-left: 10px;
 }
 
 .form-group input:focus + i {

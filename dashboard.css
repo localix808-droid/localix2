@@ -1,7 +1,7 @@
 /* Dashboard Styles */
 body {
     background: var(--gray-50);
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
 }
 
 /* Dark mode styles for dashboard */
@@ -901,6 +901,11 @@ body {
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
     border: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
 }
 
 .project-card:hover {
