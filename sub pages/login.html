@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Localix</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="../index.html">
+            <img src="../assets/images/logo.png" width="100px" />
+          </a>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="signup.html" class="nav-link btn-signup">Sign Up</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="auth-section">
+      <div class="auth-container login-centered">
+        <div class="auth-content">
+          <div class="auth-header">
+            <h1>Welcome Back</h1>
+            <p>Sign in to your account to continue</p>
+
+            <!-- Dark Mode Toggle -->
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              onclick="toggleTheme()"
+              title="Toggle dark mode"
+              style="position: absolute; top: 20px; right: 20px"
+            >
+              <i class="fas fa-sun sun-icon"></i>
+              <i class="fas fa-moon moon-icon"></i>
+            </button>
+          </div>
+
+          <form action="./dashboard.html" class="auth-form" id="loginForm">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-container">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-container">
+                <input type="password" id="password" name="password" required />
+                <i class="fas fa-lock"></i>
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-label">
+                <input type="checkbox" id="remember" name="remember" />
+                <span class="checkmark"></span>
+                Remember me
+              </label>
+              <a href="#" class="link forgot-password">Forgot Password?</a>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary auth-btn"
+              id="submitSignIn"
+            >
+              <span>Sign In</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+
+          <div class="auth-divider">
+            <span>or</span>
+          </div>
+
+          <div class="social-auth">
+            <button class="btn btn-social btn-google">
+              <i class="fab fa-google"></i>
+              <span>Continue with Google</span>
+            </button>
+            <button class="btn btn-social btn-microsoft">
+              <i class="fab fa-microsoft"></i>
+              <span>Continue with Microsoft</span>
+            </button>
+          </div>
+
+          <div class="auth-footer">
+            <p>
+              Don't have an account?
+              <a href="signup.html" class="link">Sign up here</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/dark-mode.js"></script>
+    <script type="module" src="../assets/js/firebaseSignIn.js" defer></script>
+  </body>
+</html>

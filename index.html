@@ -1,329 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Localix - Simple Business Tools for Craftsmen</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="./logo.png" width="100px">
-                <span class="logo-subtitle">For Craftsmen</span>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tools" class="nav-link">Tools</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pricing" class="nav-link">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a href="login.html" class="nav-link btn-login">Sign In</a>
-                </li>
-                <li class="nav-item">
-                    <a href="signup.html" class="nav-link btn-signup">Start Free</a>
-                </li>
-                <li class="nav-item">
-                    <!-- Dark Mode Toggle -->
-                    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle dark mode">
-                        <i class="fas fa-sun sun-icon"></i>
-                        <i class="fas fa-moon moon-icon"></i>
-                    </button>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img src="assets/images/logo.png" width="100px" />
+          <span class="logo-subtitle">For Craftsmen</span>
         </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#tools" class="nav-link">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="#pricing" class="nav-link">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="sub pages/login.html" class="nav-link btn-login"
+              >Sign In</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="sub pages/signup.html" class="nav-link btn-signup"
+              >Start Free</a
+            >
+          </li>
+          <li class="nav-item">
+            <!-- Dark Mode Toggle -->
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              onclick="toggleTheme()"
+              title="Toggle dark mode"
+            >
+              <i class="fas fa-sun sun-icon"></i>
+              <i class="fas fa-moon moon-icon"></i>
+            </button>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Simple Tools for 
-                    <span class="highlight">Skilled Craftsmen</span>
-                </h1>
-                <p class="hero-description">
-                    Manage your projects, track time, invoice clients, and grow your business - all in one simple platform designed for craftsmen like you.
-                </p>
-                <div class="hero-buttons">
-                    <a href="signup.html" class="btn btn-primary">Start Free Trial</a>
-                    <a href="#tools" class="btn btn-secondary">See How It Works</a>
-                </div>
-                <div class="hero-features">
-                    <div class="feature-tag">
-                        <i class="fas fa-clock"></i>
-                        <span>Time Tracking</span>
-                    </div>
-                    <div class="feature-tag">
-                        <i class="fas fa-file-invoice"></i>
-                        <span>Easy Invoicing</span>
-                    </div>
-                    <div class="feature-tag">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>Works on Phone</span>
-                    </div>
-                </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Simple Tools for
+            <span class="highlight">Skilled Craftsmen</span>
+          </h1>
+          <p class="hero-description">
+            Manage your projects, track time, invoice clients, and grow your
+            business - all in one simple platform designed for craftsmen like
+            you.
+          </p>
+          <div class="hero-buttons">
+            <a href="sub pages/signup.html" class="btn btn-primary"
+              >Start Free Trial</a
+            >
+            <a href="#tools" class="btn btn-secondary">See How It Works</a>
+          </div>
+          <div class="hero-features">
+            <div class="feature-tag">
+              <i class="fas fa-clock"></i>
+              <span>Time Tracking</span>
             </div>
-            <img src="./Instant information-cuate (1).png" width="400px">
+            <div class="feature-tag">
+              <i class="fas fa-file-invoice"></i>
+              <span>Easy Invoicing</span>
+            </div>
+            <div class="feature-tag">
+              <i class="fas fa-mobile-alt"></i>
+              <span>Works on Phone</span>
+            </div>
+          </div>
         </div>
+        <img
+          src="assets/images/Instant information-cuate (1).png"
+          width="400px"
+        />
+      </div>
     </section>
 
     <!-- Tools Section -->
     <section id="tools" class="tools">
-        <div class="container">
-            <div class="section-header">
-                <h2>Everything You Need to Run Your Business</h2>
-                <p>Simple tools that work the way you do</p>
-            </div>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Time Tracking</h3>
-                    <p>Track your work hours with one tap. Perfect for hourly billing and project management.</p>
-                    <ul class="tool-features">
-                        <li>Start/stop timer</li>
-                        <li>Track by project</li>
-                        <li>Daily summaries</li>
-                    </ul>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                    </div>
-                    <h3>Easy Invoicing</h3>
-                    <p>Create professional invoices in seconds. Get paid faster with automatic payment reminders.</p>
-                    <ul class="tool-features">
-                        <li>Professional templates</li>
-                        <li>Automatic calculations</li>
-                        <li>Payment tracking</li>
-                    </ul>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Client Management</h3>
-                    <p>Keep all your client information organized. Never lose a contact or project detail again.</p>
-                    <ul class="tool-features">
-                        <li>Client profiles</li>
-                        <li>Project history</li>
-                        <li>Contact notes</li>
-                    </ul>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Simple Reports</h3>
-                    <p>See how your business is doing at a glance. Track income, time, and project progress.</p>
-                    <ul class="tool-features">
-                        <li>Monthly summaries</li>
-                        <li>Project profitability</li>
-                        <li>Time analysis</li>
-                    </ul>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile App</h3>
-                    <p>Work from anywhere. Our mobile app works offline and syncs when you're back online.</p>
-                    <ul class="tool-features">
-                        <li>Offline support</li>
-                        <li>Photo attachments</li>
-                        <li>Voice notes</li>
-                    </ul>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Your data is safe with us. Automatic backups and bank-level security protect your business.</p>
-                    <ul class="tool-features">
-                        <li>Automatic backups</li>
-                        <li>Bank-level security</li>
-                        <li>24/7 support</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Everything You Need to Run Your Business</h2>
+          <p>Simple tools that work the way you do</p>
         </div>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Time Tracking</h3>
+            <p>
+              Track your work hours with one tap. Perfect for hourly billing and
+              project management.
+            </p>
+            <ul class="tool-features">
+              <li>Start/stop timer</li>
+              <li>Track by project</li>
+              <li>Daily summaries</li>
+            </ul>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h3>Easy Invoicing</h3>
+            <p>
+              Create professional invoices in seconds. Get paid faster with
+              automatic payment reminders.
+            </p>
+            <ul class="tool-features">
+              <li>Professional templates</li>
+              <li>Automatic calculations</li>
+              <li>Payment tracking</li>
+            </ul>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Client Management</h3>
+            <p>
+              Keep all your client information organized. Never lose a contact
+              or project detail again.
+            </p>
+            <ul class="tool-features">
+              <li>Client profiles</li>
+              <li>Project history</li>
+              <li>Contact notes</li>
+            </ul>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Simple Reports</h3>
+            <p>
+              See how your business is doing at a glance. Track income, time,
+              and project progress.
+            </p>
+            <ul class="tool-features">
+              <li>Monthly summaries</li>
+              <li>Project profitability</li>
+              <li>Time analysis</li>
+            </ul>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Mobile App</h3>
+            <p>
+              Work from anywhere. Our mobile app works offline and syncs when
+              you're back online.
+            </p>
+            <ul class="tool-features">
+              <li>Offline support</li>
+              <li>Photo attachments</li>
+              <li>Voice notes</li>
+            </ul>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Secure & Reliable</h3>
+            <p>
+              Your data is safe with us. Automatic backups and bank-level
+              security protect your business.
+            </p>
+            <ul class="tool-features">
+              <li>Automatic backups</li>
+              <li>Bank-level security</li>
+              <li>24/7 support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2>Simple Pricing</h2>
-                <p>Choose the plan that fits your business</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Starter</h3>
-                        <div class="price">
-                            <span class="amount">$15</span>
-                            <span class="period">/month</span>
-                        </div>
-                        <p>Perfect for individual craftsmen</p>
-            </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Time tracking</li>
-                        <li><i class="fas fa-check"></i> Basic invoicing</li>
-                        <li><i class="fas fa-check"></i> 10 clients</li>
-                        <li><i class="fas fa-check"></i> Mobile app</li>
-                        <li><i class="fas fa-check"></i> Email support</li>
-                        </ul>
-                    <a href="signup.html" class="btn btn-outline">Start Free Trial</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-header">
-                        <h3>Professional</h3>
-                        <div class="price">
-                            <span class="amount">$29</span>
-                            <span class="period">/month</span>
-                    </div>
-                        <p>Most popular for growing businesses</p>
-                </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Starter</li>
-                        <li><i class="fas fa-check"></i> Unlimited clients</li>
-                        <li><i class="fas fa-check"></i> Advanced reports</li>
-                        <li><i class="fas fa-check"></i> Payment reminders</li>
-                        <li><i class="fas fa-check"></i> Priority support</li>
-                        </ul>
-                    <a href="signup.html" class="btn btn-primary">Start Free Trial</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Business</h3>
-                        <div class="price">
-                            <span class="amount">$49</span>
-                            <span class="period">/month</span>
-                    </div>
-                        <p>For teams and larger operations</p>
-                </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Professional</li>
-                        <li><i class="fas fa-check"></i> Team management</li>
-                        <li><i class="fas fa-check"></i> Advanced analytics</li>
-                        <li><i class="fas fa-check"></i> API access</li>
-                        <li><i class="fas fa-check"></i> Dedicated support</li>
-                        </ul>
-                    <a href="signup.html" class="btn btn-outline">Start Free Trial</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Simple Pricing</h2>
+          <p>Choose the plan that fits your business</p>
         </div>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Starter</h3>
+              <div class="price">
+                <span class="amount">$15</span>
+                <span class="period">/month</span>
+              </div>
+              <p>Perfect for individual craftsmen</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Time tracking</li>
+              <li><i class="fas fa-check"></i> Basic invoicing</li>
+              <li><i class="fas fa-check"></i> 10 clients</li>
+              <li><i class="fas fa-check"></i> Mobile app</li>
+              <li><i class="fas fa-check"></i> Email support</li>
+            </ul>
+            <a href="signup.html" class="btn btn-outline">Start Free Trial</a>
+          </div>
+          <div class="pricing-card featured">
+            <div class="pricing-header">
+              <h3>Professional</h3>
+              <div class="price">
+                <span class="amount">$29</span>
+                <span class="period">/month</span>
+              </div>
+              <p>Most popular for growing businesses</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Everything in Starter</li>
+              <li><i class="fas fa-check"></i> Unlimited clients</li>
+              <li><i class="fas fa-check"></i> Advanced reports</li>
+              <li><i class="fas fa-check"></i> Payment reminders</li>
+              <li><i class="fas fa-check"></i> Priority support</li>
+            </ul>
+            <a href="signup.html" class="btn btn-primary">Start Free Trial</a>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Business</h3>
+              <div class="price">
+                <span class="amount">$49</span>
+                <span class="period">/month</span>
+              </div>
+              <p>For teams and larger operations</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Everything in Professional</li>
+              <li><i class="fas fa-check"></i> Team management</li>
+              <li><i class="fas fa-check"></i> Advanced analytics</li>
+              <li><i class="fas fa-check"></i> API access</li>
+              <li><i class="fas fa-check"></i> Dedicated support</li>
+            </ul>
+            <a href="signup.html" class="btn btn-outline">Start Free Trial</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Ready to Simplify Your Business?</h2>
-                    <p>Join thousands of craftsmen who trust Localix to manage their business. Start your free trial today.</p>
-                    <div class="contact-stats">
-                        <div class="stat">
-                            <h3>5,000+</h3>
-                            <p>Happy Craftsmen</p>
-                        </div>
-                        <div class="stat">
-                            <h3>99.9%</h3>
-                            <p>Uptime</p>
-                        </div>
-                        <div class="stat">
-                            <h3>24/7</h3>
-                            <p>Support</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Get in Touch</h3>
-                    <p>Have questions? We're here to help.</p>
-                    <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="How can we help you?" rows="4" required></textarea>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-info">
+            <h2>Ready to Simplify Your Business?</h2>
+            <p>
+              Join thousands of craftsmen who trust Localix to manage their
+              business. Start your free trial today.
+            </p>
+            <div class="contact-stats">
+              <div class="stat">
+                <h3>5,000+</h3>
+                <p>Happy Craftsmen</p>
+              </div>
+              <div class="stat">
+                <h3>99.9%</h3>
+                <p>Uptime</p>
+              </div>
+              <div class="stat">
+                <h3>24/7</h3>
+                <p>Support</p>
+              </div>
             </div>
+          </div>
+          <div class="contact-form">
+            <h3>Get in Touch</h3>
+            <p>Have questions? We're here to help.</p>
+            <form>
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <textarea
+                placeholder="How can we help you?"
+                rows="4"
+                required
+              ></textarea>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Localix</h3>
-                    <p>Simple business tools designed for skilled craftsmen who want to focus on their work, not paperwork.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#tools">Tools</a></li>
-                        <li><a href="saas.html">SaaS Services</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#">Mobile App</a></li>
-                        <li><a href="#">API</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Video Tutorials</a></li>
-                        <li><a href="#">Status</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Privacy</a></li>
-                    </ul>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Localix</h3>
+            <p>
+              Simple business tools designed for skilled craftsmen who want to
+              focus on their work, not paperwork.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Localix. All rights reserved.</p>
-            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#tools">Tools</a></li>
+              <li><a href="saas.html">SaaS Services</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#">Mobile App</a></li>
+              <li><a href="#">API</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Video Tutorials</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Localix. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
     <script src="dark-mode.js"></script>
-</body>
+  </body>
 </html>
