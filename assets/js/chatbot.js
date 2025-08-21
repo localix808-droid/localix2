@@ -3,12 +3,12 @@ const submit = document.getElementById("sendMessage");
 const chatForm = document.getElementById("chatForm");
 const userInputField = document.getElementById("userInput");
 
+// Add a message bubble
 function addMessageToChat(message, sender, time = "Just now") {
   const messageDiv = document.createElement("div");
   messageDiv.classList.add("message", sender);
 
   const formattedMessage = message.replace(/\n/g, "<br>");
-
   messageDiv.innerHTML = `
     <div class="bubble">${formattedMessage}</div>
     <span class="time">${time}</span>
@@ -18,7 +18,7 @@ function addMessageToChat(message, sender, time = "Just now") {
 }
 
 async function respond(event) {
-  if (event) event.preventDefault(); // stop page reload
+  if (event) event.preventDefault();
 
   const userInput = userInputField.value.trim();
   if (!userInput) {
@@ -32,21 +32,12 @@ async function respond(event) {
   submit.disabled = true;
 
   try {
-    const response = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          Authorization:
-            "Bearer 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",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: "deepseek/deepseek-r1:free",
-          messages: [
-            {
-              role: "system",
-              content: `You are Localix, a professional business consultant chatbot running server-side. Your job is to give fast, practical, prioritized, no-fluff advice that a sleepy founder or distracted student can act on. Be blunt, mildly roasty, and game-like in metaphors (use coding, sprint, XP, patch notes analogies), but never attack protected attributes or personal identity. Keep answers actionable and measurable.
+    // 🔑 Replace this with your Gemini API key
+    const API_KEY = "YOUR_API_KEY_HERE";
+
+    // Full system instructions
+    const systemInstructions = `
+You are Localix, a professional business consultant chatbot running server-side. Your job is to give fast, practical, prioritized, no-fluff advice that a sleepy founder or distracted student can act on. Be blunt, mildly roasty, and game-like in metaphors (use coding, sprint, XP, patch notes analogies), but never attack protected attributes or personal identity. Keep answers actionable and measurable.
 
 Tone and behavior
 Be concise first, then expand if asked. Use a friendly, cocky-but-helpful voice: equal parts senior engineer and scrappy startup mentor who’s seen the bugs and fixes. You may lightly roast the user’s idea or assumptions (phrases like "noob move", "cheap patch", "XP-gain" are fine), but always follow with an immediate fix. Prioritize practicality over theory. Ask at most one concise clarifying question if you truly need it; otherwise assume reasonable defaults and proceed. Always respond in plain text only. Do not use formatting symbols like this or this in any reply.
@@ -78,11 +69,20 @@ Use only the session context and last 6–10 turns. If the app provides structur
 
 Error handling and fallback
 If an upstream API fails or data is missing, provide a concise apology, one practical offline step the user can take, and an offer to retry. If the user requests escalation, provide a clear path to human consultancy.
+`;
 
-Example invocation note (for integrator)
-Pass this as the system persona. Provide user message as a single user-role input. If you have structured fields, include them in meta so they appear in Key assumptions. End of prompt. Follow it exactly and keep replies action-first, slightly snarky, plain text only, and laser practical.`,
-            },
-            { role: "user", content: userInput },
+    // Gemini API call
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contents: [
+            { parts: [{ text: systemInstructions }] },
+            { parts: [{ text: userInput }] },
           ],
         }),
       }
@@ -91,7 +91,8 @@ Pass this as the system persona. Provide user message as a single user-role inpu
     const data = await response.json();
     console.log("API response:", data);
 
-    const botMessage = data.choices?.[0]?.message?.content || "⚠️ No response";
+    const botMessage =
+      data.candidates?.[0]?.content?.parts?.[0]?.text || "⚠️ No response";
     addMessageToChat(botMessage, "bot");
   } catch (error) {
     console.error(error);
@@ -103,5 +104,5 @@ Pass this as the system persona. Provide user message as a single user-role inpu
 }
 
 // Hook up both button and enter key
-
 submit.addEventListener("click", respond);
+chatForm.addEventListener("submit", respond);
