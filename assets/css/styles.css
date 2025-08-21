@@ -973,6 +973,13 @@ body {
 
 }
 
+@media (max-width: 510px) {
+    .image{
+        width:300px;
+    }
+
+}
+
 /* Dark mode styles for landing page */
 [data-theme="dark"] .header {
     background: var(--bg-secondary);
